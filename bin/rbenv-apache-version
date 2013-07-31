@@ -29,6 +29,8 @@ else
     PHPENV_APACHE_MODULE_PATH="/etc/httpd/modules"
   elif [ -f /etc/debian_version ] ; then
     PHPENV_APACHE_MODULE_PATH="/usr/lib/apache2/modules"
+  elif [ -f /etc/system-release ] ; then
+    PHPENV_APACHE_MODULE_PATH="/etc/httpd/modules"
   fi
 fi
 
@@ -59,5 +61,7 @@ else
     sudo service httpd restart
   elif [ -f /etc/debian_version ] ; then
     sudo service apache2 restart
+  elif [ -f /etc/system-release ] ; then
+    sudo service httpd restart
   fi
 fi
